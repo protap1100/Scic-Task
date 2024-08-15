@@ -112,7 +112,7 @@ const Login = () => {
             <div className="form-control mt-6">
               <button
                 type="submit"
-                className="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold hover:bg-blue-400 transition duration-700 text-white outline-none"
+                className="px-2 py-1 w-full bg-orange-500 rounded hover:bg-orange-600 text-white transition duration-700  outline-none"
               >
                 Login
               </button>
