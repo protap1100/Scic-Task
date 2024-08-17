@@ -1,13 +1,13 @@
 import image from "./../../../assets/Images/Sign-in.jpg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
-import useAuth from "../../../hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import SectionTitle from "../../../components/shared/SectionTitle";
 import Google from "../../../components/login/Google";
+import useAuth from "../../../Hooks/useAuth";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);

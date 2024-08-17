@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../components/shared/SectionTitle";
+import Loading from "../others/Loading";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
@@ -51,7 +52,7 @@ const Product = () => {
   };
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loading></Loading>;
   }
 
   return (
@@ -152,13 +153,17 @@ const Product = () => {
               <div className="flex gap-4 ">
                 Available:
                 {pro.availability.map((aval, index) => (
-                  <h1 className="text-green-500" key={index}>{aval}</h1>
+                  <h1 className="text-green-500" key={index}>
+                    {aval}
+                  </h1>
                 ))}
               </div>
               <div className="flex gap-4 ">
                 Format:
                 {pro.format.map((aval, index) => (
-                  <h1 className="text-red-500" key={index}>{aval}</h1>
+                  <h1 className="text-red-500" key={index}>
+                    {aval}
+                  </h1>
                 ))}
               </div>
               <h1>Added On: {pro.added_on}</h1>
