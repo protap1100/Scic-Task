@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import SectionTitle from "../../../components/shared/SectionTitle";
 import Google from "../../../components/login/Google";
-import useAuth from "../../../hooks/useAuth";
+import useAuth from "../../../Hooks/useAuth";
 
 const SignUp = () => {
   const { createUser, updateUserProfile } = useAuth();
@@ -98,7 +98,7 @@ const SignUp = () => {
                 name="name"
                 id="name"
                 placeholder="Full Name"
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#ff8b48] focus:shadow-md"
                 {...register("name", { required: "Name is required" })}
               />
               {errors.name && (
@@ -114,7 +114,7 @@ const SignUp = () => {
                 name="email"
                 id="email"
                 placeholder="Email"
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#ff5a3d] focus:shadow-md"
                 {...register("email", {
                   required: "Email is required",
                   pattern: {
@@ -170,7 +170,7 @@ const SignUp = () => {
               </div>
             </div>
             <label className="label">
-              <a
+              <a  
                 href="#"
                 className="block text-base font-medium text-[#07074D]"
               >
@@ -193,7 +193,7 @@ const SignUp = () => {
           </form>
           <div className="text-center">
             Already Have An Account?
-            <Link className="font-bold ml-2 text-green-500" to="/login">
+            <Link className="font-bold ml-2 text-orange-500" to="/login">
               Join Us
             </Link>
           </div>

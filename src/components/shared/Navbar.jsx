@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { FaBars } from "react-icons/fa";
+import logo from "/public/Logo.png"
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -38,7 +39,7 @@ const Navbar = () => {
       <div className="flex justify-between items-center px-5 py-4">
         <div>
           <Link className="text-3xl font-bold" to="/">
-            Logo
+           <img className="w-40 h-8 rounded" src={logo} alt="" />
           </Link>
         </div>
         <div className="md:hidden">

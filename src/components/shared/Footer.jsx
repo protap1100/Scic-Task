@@ -1,4 +1,5 @@
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import logo from "/public/Logo.png"
 
 const Footer = () => {
   return (
@@ -7,17 +8,18 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
           {/* Contact Information */}
           <div className="mb-8 md:mb-0 w-full md:w-1/3 grid place-items-center">
+            <img className="w-20 h-8 my-4" src={logo} alt="" />
             <h2 className="text-xl font-bold mb-4">Contact Us</h2>
             <p className="mb-2">
               Email:{" "}
               <a href="mailto:contact@example.com" className="hover:underline">
-                contact@example.com
+                protapb23@gmail.com
               </a>
             </p>
             <p>
               Phone:{" "}
               <a href="tel:+1234567890" className="hover:underline">
-                +1 234 567 890
+                +8801957290864
               </a>
             </p>
           </div>

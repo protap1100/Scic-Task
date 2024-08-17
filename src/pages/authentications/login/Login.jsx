@@ -65,7 +65,7 @@ const Login = () => {
                 name="email"
                 placeholder="Enter Your Email"
                 {...register("email", { required: true })}
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#ce985a] focus:shadow-md"
               />
               {errors.email && (
                 <p className="text-red-500 text-sm">Email is required</p>
@@ -80,7 +80,7 @@ const Login = () => {
                   type={showPassword ? "text" : "password"}
                   placeholder="Password"
                   {...register("password", { required: true })}
-                  className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                  className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#ff6a45] focus:shadow-md"
                   required
                 />
                 <span
@@ -123,7 +123,7 @@ const Login = () => {
           </form>
           <div className="text-center">
             Want to Join Us?
-            <Link className="font-bold ml-2 text-green-500" to="/register">
+            <Link className="font-bold ml-2 text-orange-500" to="/register">
               Register
             </Link>
           </div>

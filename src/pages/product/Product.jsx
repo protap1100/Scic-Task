@@ -60,7 +60,7 @@ const Product = () => {
       <SectionTitle heading={"All Books"} subHeading={"Here Is All Books"} />
 
       {/* Search Bar and Search Button */}
-      <div className="flex justify-between gap-5 mt-5 w-full lg:w-1/3 mx-auto">
+      <div className="flex lg:flex-row flex-col justify-between gap-5 mt-5 w-full lg:w-1/3 mx-auto ">
         <input
           type="text"
           placeholder="Search books..."
@@ -86,7 +86,7 @@ const Product = () => {
       </div>
 
       {/* Price Filter Inputs */}
-      <div className="my-5 w-1/3 mx-auto flex gap-5">
+      <div className="my-5 w-1/3 mx-auto  flex lg:flex-row flex-col gap-5">
         <input
           type="number"
           name="minPrice"
@@ -110,7 +110,7 @@ const Product = () => {
       </div>
 
       {/* Category Buttons */}
-      <div className="flex justify-center space-x-4 mt-8">
+      <div className="flex lg:flex-row flex-col gap-3 justify-center space-x-4 mt-8">
         {[
           "All",
           "Bangladesh History",
