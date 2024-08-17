@@ -6,6 +6,7 @@ import Product from "../pages/product/Product";
 import ContactUs from "../pages/contactUs/ContactUs";
 import Login from "../pages/authentications/login/Login";
 import SignUp from "../pages/authentications/signup/SignUp";
+import PrivateRouter from "./PrivateRouter";
 
 export const router = createBrowserRouter([
   {
@@ -15,11 +16,19 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home></Home>,
+        element: (
+          <PrivateRouter>
+            <Home></Home>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/product",
-        element: <Product></Product>,
+        element: (
+          <PrivateRouter>
+            <Product></Product>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/contact-us",

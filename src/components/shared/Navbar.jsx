@@ -3,7 +3,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { FaBars } from "react-icons/fa";
-import logo from "/public/Logo.png"
+import logo from "/Logo.png"
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
