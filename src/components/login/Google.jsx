@@ -10,7 +10,7 @@ const Google = () => {
     googleSignIn()
       .then((result) => {
         console.log(result);
-        navigate('/');
+        navigate("/");
       })
       .then((error) => console.log(error));
   };
@@ -20,7 +20,7 @@ const Google = () => {
       <div>
         <button
           onClick={handleGoogleSignIn}
-          className="p-2 bg-blue-200 rounded-xl hover:bg-blue-400 hover:text-white flex gap-10 justify-center items-center w-full btn-info"
+          className="p-2 bg-orange-500 rounded-xl hover:bg-orange-600 text-white flex gap-10 justify-center items-center w-full btn-info"
         >
           <FaGoogle></FaGoogle>
           Login With Google

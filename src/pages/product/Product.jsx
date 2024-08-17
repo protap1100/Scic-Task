@@ -92,14 +92,14 @@ const Product = () => {
           name="minPrice"
           id="minPrice"
           placeholder="Min Price"
-          className="border border-gray-300 p-2 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm"
+          className="border border-gray-300 p-2 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-orange-500 transition shadow-sm"
         />
         <input
           type="number"
           name="maxPrice"
           id="maxPrice"
           placeholder="Max Price"
-          className="border border-gray-300 p-2 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm"
+          className="border border-gray-300 p-2 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-orange-500 transition shadow-sm"
         />
         <button
           onClick={handlePriceRangeChange}
@@ -167,9 +167,14 @@ const Product = () => {
                 ))}
               </div>
               <h1>Added On: {pro.added_on}</h1>
-              <button className="mt-5 bg-indigo-500 text-white py-3 px-6 rounded hover:bg-indigo-600 transition shadow-lg">
-                View Details
-              </button>
+              <div className="flex justify-between">
+                <button className="mt-5 bg-orange-500 text-white py-2 px-5 rounded hover:bg-orange-600 transition shadow-lg">
+                  View Details
+                </button>
+                <button className="mt-5 bg-orange-500 text-white py-2 px-5 rounded hover:bg-orange-600 transition shadow-lg">
+                  Buy Now
+                </button>
+              </div>
             </div>
           </div>
         ))}
