@@ -16,7 +16,7 @@ const Product = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/books?page=${currentPage}&limit=9&search=${searchTerm}&categoryName=${category}&publisher=${brand}&sort=${sortOrder}&minPrice=${minPrice}&maxPrice=${maxPrice}`
+      `https://scic-server-five.vercel.app/books?page=${currentPage}&limit=9&search=${searchTerm}&categoryName=${category}&publisher=${brand}&sort=${sortOrder}&minPrice=${minPrice}&maxPrice=${maxPrice}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -24,7 +24,7 @@ const Product = () => {
         setTotalPages(data.totalPages);
         setLoading(false);
       });
-  }, [currentPage, searchTerm, category, sortOrder, minPrice, maxPrice,brand]);
+  }, [currentPage, searchTerm, category, sortOrder, minPrice, maxPrice, brand]);
 
   const handleSortChange = (e) => {
     setSortOrder(e.target.value);

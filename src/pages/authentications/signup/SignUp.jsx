@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import SectionTitle from "../../../components/shared/SectionTitle";
 import Google from "../../../components/login/Google";
 import useAuth from "../../../Hooks/useAuth";
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
   const { createUser, updateUserProfile } = useAuth();

@@ -4,6 +4,8 @@
 
 This React application provides a comprehensive interface for managing products, including search, sorting, filtering by category and price, and pagination. It also integrates Firebase for user authentication with Google login.
 
+[Live Link](https://scic-task-84ec8.web.app)
+
 ## Features
 
 - **Search**: Search products by title.
@@ -24,42 +26,42 @@ This React application provides a comprehensive interface for managing products,
 
 1. **Clone the Repository**
 
-    ```bash
-    git clone https://github.com/protap1100/Scic-Task.git
-    cd your-repo
-    ```
+   ```bash
+   git clone https://github.com/protap1100/Scic-Task.git
+   cd your-repo
+   ```
 
 2. **Install Dependencies**
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 3. **Set Up Firebase**
 
-    - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/).
-    - Add a new web app to your Firebase project and copy the Firebase config object.
+   - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/).
+   - Add a new web app to your Firebase project and copy the Firebase config object.
 
 4. **Set Up Environment Variables**
 
-    Create a `.env` file in the root directory and add your Firebase configuration:
+   Create a `.env` file in the root directory and add your Firebase configuration:
 
-    ```plaintext
-    REACT_APP_FIREBASE_API_KEY=your_firebase_api_key
-    REACT_APP_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
-    REACT_APP_FIREBASE_PROJECT_ID=your_firebase_project_id
-    REACT_APP_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
-    REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
-    REACT_APP_FIREBASE_APP_ID=your_firebase_app_id
-    ```
+   ```plaintext
+   REACT_APP_FIREBASE_API_KEY=your_firebase_api_key
+   REACT_APP_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+   REACT_APP_FIREBASE_PROJECT_ID=your_firebase_project_id
+   REACT_APP_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+   REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
+   REACT_APP_FIREBASE_APP_ID=your_firebase_app_id
+   ```
 
 5. **Start the Development Server**
 
-    ```bash
-    npm start
-    ```
+   ```bash
+   npm start
+   ```
 
-    The app will be running on `http://localhost:3000`.
+   The app will be running on `http://localhost:3000`.
 
 ## Usage
 
