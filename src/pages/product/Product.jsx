@@ -9,10 +9,12 @@ const Product = () => {
   const [category, setCategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(Infinity);
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/books?page=${currentPage}&limit=9&search=${searchTerm}&categoryName=${category}&sort=${sortOrder}`
+      `http://localhost:5000/books?page=${currentPage}&limit=9&search=${searchTerm}&categoryName=${category}&sort=${sortOrder}&minPrice=${minPrice}&maxPrice=${maxPrice}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -20,7 +22,7 @@ const Product = () => {
         setTotalPages(data.totalPages);
         setLoading(false);
       });
-  }, [currentPage, searchTerm, category, sortOrder]);
+  }, [currentPage, searchTerm, category, sortOrder, minPrice, maxPrice]);
 
   const handleSortChange = (e) => {
     setSortOrder(e.target.value);
@@ -30,9 +32,16 @@ const Product = () => {
     setSearchTerm(e.target.value);
   };
 
+  const handlePriceRangeChange = () => {
+    const min = document.getElementById("minPrice").value || 0;
+    const max = document.getElementById("maxPrice").value || Infinity;
+    setMinPrice(min);
+    setMaxPrice(max);
+  };
+
   const handleCategoryChange = (newCategory) => {
     setCategory(newCategory);
-    setCurrentPage(1); 
+    setCurrentPage(1);
   };
 
   const handlePageChange = (newPage) => {
@@ -70,10 +79,33 @@ const Product = () => {
           value={sortOrder}
           className="border border-gray-300 p-3 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm"
         >
-          <option value="all">All</option>
           <option value="asc">Price: Low to High</option>
           <option value="desc">Price: High to Low</option>
         </select>
+      </div>
+
+      {/* Price Filter Inputs */}
+      <div className="my-5 w-1/3 mx-auto flex gap-5">
+        <input
+          type="number"
+          name="minPrice"
+          id="minPrice"
+          placeholder="Min Price"
+          className="border border-gray-300 p-2 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm"
+        />
+        <input
+          type="number"
+          name="maxPrice"
+          id="maxPrice"
+          placeholder="Max Price"
+          className="border border-gray-300 p-2 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm"
+        />
+        <button
+          onClick={handlePriceRangeChange}
+          className="px-5 py-2 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl hover:from-orange-600 hover:to-red-700 text-white font-semibold shadow-md transition duration-700 outline-none"
+        >
+          Apply
+        </button>
       </div>
 
       {/* Category Buttons */}
