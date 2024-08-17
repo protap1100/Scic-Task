@@ -138,7 +138,7 @@ const Product = () => {
             className="border rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300 bg-white"
           >
             <img
-              className="w-full h-64 object-cover"
+              className="w-full p-5 h-64 object-cover"
               src={pro.image}
               alt={pro.title}
             />
@@ -148,8 +148,21 @@ const Product = () => {
               </h3>
               <h1>{pro.writerName}</h1>
               <h1>{pro.publisher}</h1>
-              <p className="text-gray-500 mt-3">${pro.price}</p>
-              <button className="mt-5 bg-indigo-500 text-white py-3 px-6 rounded-lg hover:bg-indigo-600 transition shadow-lg">
+              <p className="text-gray-500 mt-3">Price: ${pro.price}</p>
+              <div className="flex gap-4 ">
+                Available:
+                {pro.availability.map((aval, index) => (
+                  <h1 className="text-green-500" key={index}>{aval}</h1>
+                ))}
+              </div>
+              <div className="flex gap-4 ">
+                Format:
+                {pro.format.map((aval, index) => (
+                  <h1 className="text-red-500" key={index}>{aval}</h1>
+                ))}
+              </div>
+              <h1>Added On: {pro.added_on}</h1>
+              <button className="mt-5 bg-indigo-500 text-white py-3 px-6 rounded hover:bg-indigo-600 transition shadow-lg">
                 View Details
               </button>
             </div>
