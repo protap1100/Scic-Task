@@ -168,11 +168,7 @@ const Product = () => {
             key={pro._id}
             className="border rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300 bg-white"
           >
-            <img
-              className="w-full p-5 h-64 object-cover"
-              src={pro.image}
-              alt={pro.title}
-            />
+            <img className="w-full p-5 h-80 " src={pro.image} alt={pro.title} />
             <div className="p-6">
               <h3 className="text-lg font-semibold text-gray-800">
                 {pro.title}
@@ -218,7 +214,7 @@ const Product = () => {
       {/* Pagination Controls */}
       <div className="flex justify-center items-center space-x-4 mt-12">
         <button
-          className="px-5 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+          className=" px-3 py-2 lg:px-5 lg:py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
         >
@@ -230,7 +226,7 @@ const Product = () => {
           {[...Array(totalPages).keys()].map((num) => (
             <button
               key={num + 1}
-              className={`px-4 py-2 rounded-lg text-white font-semibold shadow-md ${
+              className={`lg:px-4 p-2 lg:py-2 rounded-lg text-white font-semibold shadow-md ${
                 currentPage === num + 1
                   ? "bg-orange-600"
                   : "bg-gray-200 text-indigo-600 hover:bg-indigo-100"
@@ -243,7 +239,7 @@ const Product = () => {
         </div>
 
         <button
-          className="px-5 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-3 py-2 lg:px-5 lg:py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
         >
