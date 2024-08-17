@@ -8,6 +8,7 @@ const Product = () => {
   const [sortOrder, setSortOrder] = useState("asc");
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("All");
+  const [brand, setBrand] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [minPrice, setMinPrice] = useState(0);
@@ -15,7 +16,7 @@ const Product = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/books?page=${currentPage}&limit=9&search=${searchTerm}&categoryName=${category}&sort=${sortOrder}&minPrice=${minPrice}&maxPrice=${maxPrice}`
+      `http://localhost:5000/books?page=${currentPage}&limit=9&search=${searchTerm}&categoryName=${category}&publisher=${brand}&sort=${sortOrder}&minPrice=${minPrice}&maxPrice=${maxPrice}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -23,7 +24,7 @@ const Product = () => {
         setTotalPages(data.totalPages);
         setLoading(false);
       });
-  }, [currentPage, searchTerm, category, sortOrder, minPrice, maxPrice]);
+  }, [currentPage, searchTerm, category, sortOrder, minPrice, maxPrice,brand]);
 
   const handleSortChange = (e) => {
     setSortOrder(e.target.value);
@@ -42,6 +43,11 @@ const Product = () => {
 
   const handleCategoryChange = (newCategory) => {
     setCategory(newCategory);
+    setCurrentPage(1);
+  };
+
+  const handleBrandName = (brandName) => {
+    setBrand(brandName);
     setCurrentPage(1);
   };
 
@@ -73,18 +79,6 @@ const Product = () => {
         </button>
       </div>
 
-      {/* Sort Dropdown */}
-      <div className="mt-8 flex justify-center">
-        <select
-          onChange={handleSortChange}
-          value={sortOrder}
-          className="border border-gray-300 p-3 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm"
-        >
-          <option value="asc">Price: Low to High</option>
-          <option value="desc">Price: High to Low</option>
-        </select>
-      </div>
-
       {/* Price Filter Inputs */}
       <div className="my-5 w-1/3 mx-auto  flex lg:flex-row flex-col gap-5">
         <input
@@ -109,26 +103,62 @@ const Product = () => {
         </button>
       </div>
 
+      {/* Sort Dropdown */}
+      <div className="mt-8 flex justify-center">
+        <select
+          onChange={handleSortChange}
+          value={sortOrder}
+          className="border border-gray-300 p-3 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm"
+        >
+          <option value="dateAsc">Date:Newest First</option>
+          <option value="priceAsc">Price: Low to High</option>
+          <option value="priceDesc">Price: High to Low</option>
+        </select>
+      </div>
+
       {/* Category Buttons */}
-      <div className="flex lg:flex-row flex-col gap-3 justify-center space-x-4 mt-8">
-        {[
-          "All",
-          "Bangladesh History",
-          "Liberation War",
-          "Culture and Heritage",
-          "Political History",
-          "Economic History",
-        ].map((cat) => (
-          <button
-            key={cat}
-            className={`px-3 py-2 bg-gradient-to-r from-orange-500 to-red-600 rounded hover:from-orange-600 hover:to-red-700 text-white font-semibold shadow-md transition duration-700 outline-none ${
-              category === cat ? "from-orange-700 to-red-800" : ""
-            }`}
-            onClick={() => handleCategoryChange(cat)}
-          >
-            {cat}
-          </button>
-        ))}
+      <div className="flex flex-col lg:flex-row gap-3 justify-center mt-8 items-center">
+        <h1 className="text-orange-600 text-xl:">Category Name</h1>
+        <select
+          value={category} // Bind the selected value to your state
+          onChange={(e) => handleCategoryChange(e.target.value)}
+          className="px-3 py-2 bg-gradient-to-r from-orange-500 to-red-600 rounded text-white font-semibold shadow-md transition duration-700 outline-none"
+        >
+          {[
+            "All",
+            "Bangladesh History",
+            "Liberation War",
+            "Culture and Heritage",
+            "Political History",
+            "Economic History",
+          ].map((cat) => (
+            <option key={cat} value={cat} className="bg-orange-500">
+              {cat}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Publisher Name */}
+      <div className="flex flex-col lg:flex-row gap-3 justify-center mt-8 items-center">
+        <h1 className="text-orange-600 text-xl:">Brand Name</h1>
+        <select
+          value={brand}
+          onChange={(e) => handleBrandName(e.target.value)}
+          className="px-3 py-2 bg-gradient-to-r from-orange-500 to-red-600 rounded text-white font-semibold shadow-md transition duration-700 outline-none"
+        >
+          {[
+            "All",
+            "Environment Press",
+            "Bengal Press",
+            "Dhaka Publications",
+            "Subcontinental Press",
+          ].map((cat) => (
+            <option key={cat} value={cat} className="bg-orange-500">
+              {cat}
+            </option>
+          ))}
+        </select>
       </div>
 
       {/* Product Grid */}
@@ -153,7 +183,12 @@ const Product = () => {
               <div className="flex gap-4 ">
                 Available:
                 {pro.availability.map((aval, index) => (
-                  <h1 className="text-green-500" key={index}>
+                  <h1
+                    className={`${
+                      aval === "Online" ? "text-green-500" : "text-red-600"
+                    }  `}
+                    key={index}
+                  >
                     {aval}
                   </h1>
                 ))}
